@@ -1,5 +1,6 @@
 'use client';
 
+import Link from 'next/link';
 import { FC, ReactElement } from 'react';
 import { AiOutlineHeart } from 'react-icons/ai';
 import { BsCart2 } from 'react-icons/bs';
@@ -79,10 +80,10 @@ export const NavBar: FC = () => {
       path: '/heart',
     },
     {
-      key: 'cart',
+      key: 'shopping',
       label: `${width > 1024 ? '買い物リスト' : 'お買い物'}`,
       icon: <BsCart2 size='1.5rem' />,
-      path: '/cart',
+      path: '/shopping',
     },
   ];
 
@@ -94,27 +95,28 @@ export const NavBar: FC = () => {
       </div>
       <div className={buttonContainer()}>
         {navbarItem.map((item) => (
-          <button
-            className={icon({
-              class:
-                item.path === path
-                  ? 'text-[#CA3214]'
-                  : 'text-[#6F6E77] lg:text-[#1A1523]',
-            })}
-            key={item.key}
-          >
-            {item.icon}
-            <p
-              className={label({
+          <Link key={item.key} href={item.path}>
+            <button
+              className={icon({
                 class:
                   item.path === path
                     ? 'text-[#CA3214]'
                     : 'text-[#6F6E77] lg:text-[#1A1523]',
               })}
             >
-              {item.label}
-            </p>
-          </button>
+              {item.icon}
+              <p
+                className={label({
+                  class:
+                    item.path === path
+                      ? 'text-[#CA3214]'
+                      : 'text-[#6F6E77] lg:text-[#1A1523]',
+                })}
+              >
+                {item.label}
+              </p>
+            </button>
+          </Link>
         ))}
       </div>
     </div>

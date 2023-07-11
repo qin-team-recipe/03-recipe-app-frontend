@@ -1,3 +1,4 @@
+import { cookies } from 'next/headers';
 import { tv } from 'tailwind-variants';
 
 import { NavBar } from '@/app/_components/navBar';
@@ -25,6 +26,8 @@ const home = tv(
 );
 
 export default function Home() {
+  console.log(cookies().get('access_token'));
+
   const { main, content } = home({
     size: {
       lg: 'large',

@@ -19,5 +19,5 @@ module.exports = withTV({
       },
     },
   },
-  plugins: [],
+  plugins: [require('@tailwindcss/line-clamp')],
 });

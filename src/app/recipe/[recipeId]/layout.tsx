@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import { MdArrowBack, MdFavoriteBorder } from 'react-icons/md';
 import { tv } from 'tailwind-variants';
 
@@ -77,9 +78,9 @@ export default async function Layout({
       {/* 料理画像 */}
       <div className='relative'>
         <div className={imageArea()} />
-        <div className={back()}>
+        <Link href='/search/recipe' className={back()}>
           <MdArrowBack className={backIcon()} />
-        </div>
+        </Link>
         <div className={fav()}>
           <div className={favArea()}>
             {/* TODO: Favo/Unfavoの切り替え */}
